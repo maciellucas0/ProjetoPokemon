@@ -5,7 +5,7 @@ export const CardPokemons = ({ item }) => {
     <>
       <DivCard>
         <H3Card>{item.name}</H3Card>
-        <ButtonCard>Ver</ButtonCard>
+        <ButtonCard>Ver Pokemon</ButtonCard>
       </DivCard>
     </>
   );

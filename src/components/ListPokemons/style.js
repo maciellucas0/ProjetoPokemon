@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Main = styled.main`
+  display: flex;
+  background-color: rgba(240, 243, 165, 0.18);
+  height: 100vh;
+`;
+
 export const UlPokemons = styled.ul`
   width: 700px;
   margin: auto;

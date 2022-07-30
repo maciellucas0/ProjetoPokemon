@@ -10,7 +10,7 @@ export const H3Card = styled.h3`
   margin-left: 20px;
   font-family: "Varela Round";
   font-size: 20px;
-  color: rgba(250, 252, 0, 1);
+  color: black;
 `;
 
 export const ButtonCard = styled.button`
