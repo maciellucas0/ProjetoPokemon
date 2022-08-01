@@ -2,7 +2,7 @@ import { CardPokemons } from "../CardPokemon";
 import { useEffect, useState } from "react";
 import { api } from "../../Services/api";
 
-import { LiPokemons, Main, UlPokemons } from "./style";
+import { Div, LiPokemons, Main, UlPokemons } from "./style";
 import { Botoes } from "../Botoes/Botoes";
 
 export const ListPokemons = () => {
@@ -11,6 +11,8 @@ export const ListPokemons = () => {
   const [offset, setOffset] = useState(0);
   const [buttonNextDisabled, setButtonNextDisabled] = useState(false);
   const [buttonPreviousDisabled, setButtonPreviousDisabled] = useState(true);
+
+  const [verPokemon, setVerPokemon] = useState(null);
 
   useEffect(() => {
     setLoading(true);
@@ -33,19 +35,40 @@ export const ListPokemons = () => {
       });
   }, [offset]);
 
+  function mostrarPokemon(pokemonName) {
+    api
+      .get(`pokemon/${pokemonName}`)
+      .then((response) => response.data)
+      .then((response) => setVerPokemon(response));
+  }
+
   return (
     <>
       {loading ? (
         <p>Carregando...</p>
       ) : (
         <Main>
+          {verPokemon && (
+            <Div>
+              <img
+                src={verPokemon.sprites.front_default}
+                alt={verPokemon.name}
+              />
+              <p>{verPokemon.name}</p>
+            </Div>
+          )}
+
           <UlPokemons>
             {pokemons.map((item, index) => (
               <LiPokemons key={index}>
-                <CardPokemons item={item} />
+                <CardPokemons
+                  onClick={() => mostrarPokemon(item.name)}
+                  item={item}
+                />
               </LiPokemons>
             ))}
           </UlPokemons>
+
           <Botoes
             offset={offset}
             setOffset={setOffset}

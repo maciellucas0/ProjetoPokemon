@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-  display: flex;
-  background-color: rgba(240, 243, 165, 0.18);
   height: 100vh;
+  display: flex;
+
+  align-items: center;
+
+  background-color: rgba(240, 243, 165, 0.18);
 `;
 
 export const UlPokemons = styled.ul`
@@ -13,9 +16,9 @@ export const UlPokemons = styled.ul`
   margin-top: 2rem;
 
   display: flex;
-  flex-direction: row;
+
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
 `;
 
 export const LiPokemons = styled.li`
@@ -32,4 +35,26 @@ export const LiPokemons = styled.li`
   list-style: none;
 
   margin-top: 10px;
+`;
+
+export const Div = styled.div`
+  border: solid 1px black;
+  margin-left: 5%;
+
+  height: 300px;
+  width: 300px;
+
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  flex-direction: column;
+  text-align: center;
+
+  border-radius: 10%;
+
+  img {
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
+  }
 `;

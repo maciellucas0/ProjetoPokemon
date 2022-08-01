@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
 export const DivBotoes = styled.div`
-  position: absolute;
-  right: 4%;
-  top: 48%;
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-right: 20px;
 `;
 
 export const BotoesSetas = styled.button`
